@@ -1,0 +1,65 @@
+Methods- Variant Calling
+
+In this variant calling workflow, bash scripting is used.
+
+1.  getGenomes.sh- In this bash script, the wget function is used to
+    obtain a copy of the fast file and then gunzip is used to unpack or
+    unzip the file which when done will extract the GRCh38 reference
+    genome.
+
+2.  getReads. sh- This bash script is used for downloading the fast
+    reads. For this purpose, the SRA Toolkit is used, specifically the
+    fast-dump function which dumps/downloads the fastq file and then
+    split the files since the layout of the is paired. So after the
+    split files flag is used, two fastq files are obtained.
+
+3.  trimReads.sh- This bash script employs Trimmomatic which is a
+    trimming tool employing Java for trimming Illumina reads. It quality
+    trims the reads and splits it into paired and unpaired reads.
+
+4.  indexGenome.sh- In the next step, indexGenome.sh uses BWA or the
+    Burrows-Wheeler Aligner to create a BWT index of the reference
+    genome obtained from getGenome.sh A fai is used to create a fasta
+    index, since some NGS tools require fasta index files
+
+5.  alignReads.sh- This bash script uses the bwa mem algorithm which
+    performs local alignment. In this script, the RG or the read groups
+    identifiers are also tagged. If paired end files are used, the
+    output SAM files can be combined using Picard’s MergeSamFiles to
+    bind them into one and carry further analyses.
+
+6.  sortSam.sh- The output SAM file from bwa mem is then sorted using
+    sort flag from Samtools. It arranges all the entries in a SAM file
+    in an order (by leftmost coordinates) Ultimately, a BAM or a binary
+    alignment map which is a compressed file format of SAM is created
+    using Samtools. Other flags used in the script signify the number of
+    threads to be used and the memory assigned to these threads.
+
+7.  indexReads.sh- The sorted BAM files are further indexed using and a
+    BAM index or a .bai file is produced as an output.
+
+8.  runDeepVariant.sh- This script allows us to run DeepVariant and
+    carry out variant calling which produces a VCF file in the end
+    enlisting the variants.
+
+\#References
+
+1.  Bolger, Anthony M., et al. “Trimmomatic: A Flexible Trimmer for
+    Illumina Sequence Data.” Bioinformatics, vol. 30, no. 15, Aug. 2014,
+    pp. 2114–20. PubMed Central,
+    <a href="doi:10.1093/bioinformatics/btu170" class="uri">doi:10.1093/bioinformatics/btu170</a>.
+
+2.  Li, H., and R. Durbin. “Fast and Accurate Short Read Alignment with
+    Burrows-Wheeler Transform.” Bioinformatics, vol. 25, no. 14, July
+    2009, pp. 1754–60. DOI.org (Crossref),
+    <a href="doi:10.1093/bioinformatics/btp324" class="uri">doi:10.1093/bioinformatics/btp324</a>.
+
+3.  Li, Heng, et al. “The Sequence Alignment/Map Format and SAMtools.”
+    Bioinformatics (Oxford, England), vol. 25, no. 16, Aug. 2009,
+    pp. 2078–79. PubMed,
+    <a href="doi:10.1093/bioinformatics/btp352" class="uri">doi:10.1093/bioinformatics/btp352</a>
+
+4.  Poplin, Ryan, et al. “A Universal SNP and Small-Indel Variant Caller
+    Using Deep Neural Networks.” Nature Biotechnology, vol. 36, no. 10,
+    Nov. 2018, pp. 983–87. DOI.org (Crossref),
+    <a href="doi:10.1038/nbt.4235" class="uri">doi:10.1038/nbt.4235</a>.
