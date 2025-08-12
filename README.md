@@ -71,7 +71,6 @@ This repository contains educational materials and coursework. Please respect ac
 For questions about the coursework content, please refer to the course materials or contact the course instructor at Northeastern University.
 
 ---
-
-*Last updated: [Current Date]*  
+ 
 *Course: BINF 6308 & BINF 6309 - Methods in Bioinformatics*  
 *Institution: Northeastern University*
