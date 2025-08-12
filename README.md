@@ -11,36 +11,19 @@ This repository houses comprehensive coursework covering fundamental bioinformat
 ## Repository Structure
 
 ### Core Bioinformatics Scripts
-- **Sequence Analysis**: `sliding_window.py`, `sliding_window_fasta.py`, `hamming.py`
-- **File Processing**: `parse_file.py`, `open_file.py`, `write_file.py`, `headers_to_file.py`
-- **Sequence Manipulation**: `transcribe.py`, `translate.py`, `translate_APOE.py`, `interleave.py`
-- **Data Processing**: `concatenate.py`, `count_aip_kmer.py`, `create_seq.py`
-
-### Bioinformatics Pipelines & Workflows
-- **Genome Assembly**: `quast.sh`, `spades.sh`, `alignSpades.sh`
-- **Sequence Alignment**: `alignAll.sh`, `alignReads.sh`, `alignPredicted.sh`
-- **Read Processing**: `getReads.sh`, `indexReads.sh`, `trim.sh`
-- **Genome Analysis**: `getGenome.sh`, `indexGenome.sh`, `buildIndex.sh`
-- **Protein Analysis**: `blastPep.sh`, `predictProteins.sh`, `pfamScan.sh`
-
-### R-based Analysis
-- **Statistical Analysis**: `markov_chains.R`, `de.R`, `mergeAll.R`, `mergeKo.R`
-- **Data Visualization**: `markov_plots.pdf`
-- **R Markdown Reports**: `methodResults.Rmd`, `citeExample.Rmd`, `MethodsVariantCalling.Rmd`
-
-### Testing & Validation
-- **Unit Tests**: `test_basic_functions.py`, `test_fibonacci.py`, `test_hamming.py`
-- **Test Scripts**: Various `.sh` test files for automated testing
-- **Test Outputs**: Sample output files for validation
+- **Python Scripts**: Various Python scripts for sequence analysis, file processing, data manipulation, and bioinformatics algorithms
+- **Shell Scripts**: Pipeline automation scripts for genome assembly, sequence alignment, read processing, and protein analysis
+- **R Scripts**: Statistical analysis, data visualization, and bioinformatics workflows
 
 ### Data Files
-- **Sequence Data**: `newfasta`, `apoe_aa.fasta`, `APOE_refseq_transcript.fasta`
-- **Annotation Data**: `tx2gene.csv`, `deAnnotated.csv`, `dfAll.csv`
-- **Reference Data**: `ko`, `markov`, `gms.out`
+- **Sequence Data**: FASTA files containing DNA/protein sequences
+- **Annotation Data**: CSV files with gene annotations and differential expression data
+- **Reference Data**: Various reference files for analysis and comparison
 
 ### Documentation & Reports
-- **HTML Reports**: `MethodsVariantCalling.html`, `citeExample.html`
-- **Bibliography**: `bibliography.ris`, various PMC reference files
+- **R Markdown Reports**: Comprehensive analysis reports and method documentation
+- **HTML Reports**: Interactive analysis results and citations
+- **Bibliography**: Reference management files and citation examples
 
 ## Key Learning Objectives
 
@@ -64,31 +47,6 @@ This repository houses comprehensive coursework covering fundamental bioinformat
 - **Data Formats**: FASTA, CSV, RIS, HTML
 - **Analysis Platforms**: R Markdown, Jupyter notebooks
 - **Version Control**: Git
-
-## Getting Started
-
-### Prerequisites
-- Python 3.x
-- R with bioinformatics packages
-- Common bioinformatics tools (BLAST, SPAdes, etc.)
-- Bash shell environment
-
-### Running Scripts
-Most Python scripts can be run directly:
-```bash
-python script_name.py
-```
-
-Shell scripts require execution permissions:
-```bash
-chmod +x script_name.sh
-./script_name.sh
-```
-
-R scripts can be run in R or RStudio:
-```r
-source("script_name.R")
-```
 
 ## Course Structure
 
